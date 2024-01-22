@@ -1,6 +1,5 @@
 from Controller import Controller
-from DataLoader import EmployeeReader
-from DataLoader import OrderReader
+from DataReader import EmployeeReader, OrderReader
 from Queries import OrderQuery, Matcher
 from DataUpdater import OrderUpdater
 from datetime import datetime
@@ -33,7 +32,6 @@ class EmployeeUI(Controller):
         self.__print_menu()
         option_index = int(input("What's your option? "))
         self.__functions[option_index]()
-        pass
 
     def __print_menu(self):
         for index, option in enumerate(self.__options):

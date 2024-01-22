@@ -1,6 +1,5 @@
 from DataFileNames import DataFileNames
-from entity_classes.Order import Order
-from DataLoader import OrderReader
+from DataReader import OrderReader
 
 
 class OrderUpdater:
@@ -23,4 +22,18 @@ class OrderUpdater:
         OrderUpdater.rewrite(all_orders)
 
 
+class ProductUpdater:
+    @staticmethod
+    def rewrite(all_products):
+        f = open(DataFileNames.product_file_name, "w")
+        for product in all_products:
+            f.write(f"{product.product_id},{product.product_code},"
+                    f"{product.product_name},{product.category},"
+                    f"{product.quantity_per_unit},{product.list_price}\n")
 
+    @staticmethod
+    def add(new_product):
+        f = open(DataFileNames.product_file_name, "a")
+        f.write(f"{new_product.product_id},{new_product.product_code},"
+                f"{new_product.product_name},{new_product.category},"
+                f"{new_product.quantity_per_unit},{new_product.list_price}\n")
