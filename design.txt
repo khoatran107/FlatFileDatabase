@@ -1,0 +1,7 @@
+what tables do I have:
+- customers
+- employees
+- owners
+- products
+- orders
+- order_detail
