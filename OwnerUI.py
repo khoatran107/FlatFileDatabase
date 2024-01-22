@@ -52,13 +52,13 @@ class OwnerUI(Controller):
         product_builder = ProductBuilder()
         print("Now enter the new product info")
         new_product = product_builder\
-                        .set_product_id(input("Product ID: "))\
-                        .set_product_code(input("Product Code: "))\
-                        .set_product_name(input("Product Name: "))\
-                        .set_category(input("Category: "))\
-                        .set_quantity_per_unit(input("Quantity per unit: "))\
-                        .set_list_price(float(input("Price: ")))\
-                        .build()
+            .set_product_id(input("Product ID: "))\
+            .set_product_code(input("Product Code: "))\
+            .set_product_name(input("Product Name: "))\
+            .set_category(input("Category: "))\
+            .set_quantity_per_unit(input("Quantity per unit: "))\
+            .set_list_price(float(input("Price: ")))\
+            .build()
         self.__all_products.append(new_product)
         ProductUpdater.add(new_product)
         print("New product added. Congrats!")

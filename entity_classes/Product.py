@@ -8,33 +8,42 @@ class Product:
         self.quantity_per_unit = args[4]
         self.list_price = 0 if not args[5] else float(args[5])
 
+
 class ProductBuilder:
     def __init__(self):
-        self.product = Product()
+        self.product_id = ""
+        self.product_code = ""
+        self.product_name = ""
+        self.category = ""
+        self.quantity_per_unit = ""
+        self.list_price = 0.0
 
     def set_product_id(self, product_id):
-        self.product.product_id = product_id
+        self.product_id = product_id
         return self
 
     def set_product_code(self, product_code):
-        self.product.product_code = product_code
+        self.product_code = product_code
         return self
 
     def set_product_name(self, product_name):
-        self.product.product_name = product_name
+        self.product_name = product_name
         return self
 
     def set_category(self, category):
-        self.product.category = category
+        self.category = category
         return self
 
     def set_quantity_per_unit(self, quantity_per_unit):
-        self.product.quantity_per_unit = quantity_per_unit
+        self.quantity_per_unit = quantity_per_unit
         return self
 
     def set_list_price(self, list_price):
-        self.product.list_price = list_price
+        self.list_price = float(list_price) if list_price else 0.0
         return self
 
     def build(self):
-        return self.product
+        return Product(
+            f"{self.product_id},{self.product_code},{self.product_name},"
+            f"{self.category},{self.quantity_per_unit},{self.list_price}"
+        )

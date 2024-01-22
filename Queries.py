@@ -1,5 +1,6 @@
 from prettytable import PrettyTable
 from DataReader import OrderReader, OrderDetailReader, ProductReader
+import datetime, time
 
 
 class Matcher:
@@ -53,3 +54,7 @@ class OrderQuery:
         result += f"Order date: {order.order_date}\n"
         result += f"Shipped date: {(order.shipped_date or 'Not yet')}\n"
         return result
+
+    @staticmethod
+    def get_new_order_id():
+        return str(int(time.mktime(datetime.datetime.now().timetuple())))
